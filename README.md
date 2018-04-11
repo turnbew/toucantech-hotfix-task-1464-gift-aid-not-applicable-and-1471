@@ -3,32 +3,24 @@ TASK DATE: 04.04.2017 - FINISHED: 04.04.2017
 DIFFICULTY: EASY - TWO JOBS iN ONE 
 
 TASK SHORT DESCRIPTION: 1464 [
-								Total giving figure shouldn't calculate donations with 
-								the 'gift aid not applicable' option for gift aid status
-							]
-							
-						1471 [
-							"Weekly newsletter template changes
-							- Use only two text sizes, one for header (16px) and one for body (13px)
-							- Align all headers to the left
-							- Hide the banner at the top if no banner image has been uploaded"	
-							] - RELATED TO TASK 962
-						
-						TEST PART AGAIN WAS PUT INTO THE CODE!!!!!
+				Total giving figure shouldn't calculate donations with 
+				the 'gift aid not applicable' option for gift aid status
+				]
+
+			1471 [
+				"Weekly newsletter template changes
+				- Use only two text sizes, one for header (16px) and one for body (13px)
+				- Align all headers to the left
+				- Hide the banner at the top if no banner image has been uploaded"	
+				] - RELATED TO TASK 962
+
+			TEST PART AGAIN WAS PUT INTO THE CODE!!!!!
 						
 						
 GITHUB REPOSITORY CODE: hotfix/task-1464-gift-aid-not-applicable
 
 ORIGINAL WORK: https://github.com/BusinessBecause/network-site/tree/hotfix/task-1464-gift-aid-not-applicable
 
-HELPER LINKS  
-
-http://test14.toucantech.com/admin-portal/fundraising/donationdetails/1076
-http://test14.toucantech.com/admin-portal/members/edit/123
-C:\toucantech.dev\network-site\addons\default\modules\network_settings\controllers\members.php
-C:\toucantech.dev\network-site\addons\default\modules\network_settings\views\members\form.php
-
-HELPER LINKS END
 
 CHANGES (1471)
 
