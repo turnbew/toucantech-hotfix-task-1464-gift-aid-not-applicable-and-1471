@@ -1,6 +1,8 @@
+FOR PRIVACY AND CODE PROTECTING REASONS THIS IS A SIMPLIFIED VERSION OF CHANGES AND NEW FEATURES
+
 TASK DATE: 04.04.2017 - FINISHED: 04.04.2017
 
-DIFFICULTY: EASY - TWO JOBS iN ONE 
+TASK LEVEL: EASY - TWO JOBS iN ONE 
 
 TASK SHORT DESCRIPTION: 1464 [
 				Total giving figure shouldn't calculate donations with 
@@ -13,24 +15,19 @@ TASK SHORT DESCRIPTION: 1464 [
 				- Align all headers to the left
 				- Hide the banner at the top if no banner image has been uploaded"	
 				] - RELATED TO TASK 962
-
-			TEST PART AGAIN WAS PUT INTO THE CODE!!!!!
-						
-						
+				
 GITHUB REPOSITORY CODE: hotfix/task-1464-gift-aid-not-applicable
 
-ORIGINAL WORK: https://github.com/BusinessBecause/network-site/tree/hotfix/task-1464-gift-aid-not-applicable
 
-
-CHANGES (1471)
+CHANGES 
 
 	NEW FILE: 
 	
-		\network-site\addons\default\modules\clubs\views\email_templates\weekly_newsletters\email_banner.php
+		email_banner.php
 
 	IN FILES:
 	
-		\network-site\addons\default\modules\clubs\events.php
+		events.php
 
 			function changed totally
 			
@@ -49,11 +46,7 @@ CHANGES (1471)
 				}
 				
 
-CHANGES
- 
-	IN FILES: 
-	
-		\network-site\addons\default\modules\fundraising\models\payments_m.php
+		payments_m.php
 		
 			Inside function total_donations_for_user
 			
@@ -79,65 +72,3 @@ CHANGES
 							if($this->declarations_m->check_for_specific_donation($id, $donation['id'])) $donation['payment_amount'] *= 1.25;
 							elseif($this->declarations_m->check_for_date($id,$day,$month,$year)) $donation['payment_amount'] *= 1.25;
 						}
-
-						
-
-ADDITIONAL INFO	FOR TEST	 
-		 	
-	To call cron file: http://test14.toucantech.com/cron/hjk456 
-	
-	If you'd like to follow the process: http://test14.toucantech.com/cron/process/hjk456/1
-	
-	AND in index (set this true): 
-			case PYRO_PRODUCTION:
-			ini_set('display_errors', true);
-
-	set cron: crontab -e on testserver
-	
-	HELPER - to set back changes in database
-	
-	Delete records from all of the affected tables
-
-	DELETE FROM default_newsletters_lists WHERE id > 260;
-	DELETE FROM default_newsletters_newsletters WHERE id > 260;
-	DELETE FROM default_newsletters_newsletters_lists WHERE lists_id > 260;
-	DELETE FROM default_newsletters_queue WHERE list_id > 260;
-	DELETE FROM default_newsletters_subscribers_lists WHERE lists_id > 260;
-	DELETE FROM default_activity_tracker WHERE id > 310;
-	DELETE FROM default_activity_tracker_user_association WHERE activity_id > 310;
-
-
-CHANGES:_
-
-	//-------------------- FOR TEST: 
-	
-			newsletters_subscribers table :: id = 25 ->
-					change: info@pelicanconnect.com e-mail to yours: lajos@toucantech.com
-			default_users table: id = 1
-					change: info@pelicanconnect.com e-mail to yours: lajos@toucantech.com
-			default_users table: id = 123
-					change: mehdi@toucantech.com e-mail to yours: lajos@toucantech.com		
-					
-			\network-site\addons\default\modules\network_settings\controllers\email_templates.php
-		
-			//Inside function index
-				
-				/*
-					!!!!!! TEST TASK 962 - WEEKLY FRIDAY NEWSLETTER
-				*/			
-				require_once __DIR__ . '/../../clubs/events.php';					
-				$events_obj = new Events_clubs();					
-				$events_obj->send_newsletter();
-				echo "Logging Weekly newsletters test is done. Don't forget, "; 
-				echo "you need to change commit, news ...etc, because changes activate sending newsletter.";
-				echo "<br>";
-				echo "<STRONG>IMPORTANT!!!!</STRONG> BEFORE MERGE, WE NEED TO TAKE OUT SOME RESTRICTION!";
-				
-					
-				/*
-					CALL URL: base_uri/admin-portal/email-center/system-emails
-					
-					!!!!!! END TEST TASK 962 - WEEKLY FRIDAY NEWSLETTER
-				*/	
-			
-	//----------------------------- END TEST						
